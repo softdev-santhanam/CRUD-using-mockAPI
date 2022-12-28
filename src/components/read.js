@@ -40,17 +40,20 @@ export default function Read() {
         <div>
             <table className='table'>
                     <tr className='tr'>
+                        <th>SN NO</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Checkbox Value</th>
                         <th>Create</th>
                         <th>Update</th>
                         <th>Delete</th>
+                        <th>Time</th>
                     </tr>
 
                     {APIData.map((data) => {
                         return (
                             <tr>
+                                <td>{data.id}</td>
                                 <td>{data.firstName}</td>
                                 <td>{data.lastName}</td>
                                 <td>{data.checkbox ? 'Checked' : 'Unchecked'}</td>
@@ -66,7 +69,9 @@ export default function Read() {
                                 <td>
                                     <Button onClick={() => onDelete(data.id)}>Delete</Button>
                                 </td>
+                                <td>{data.createdAt}</td>
                             </tr>
+                            
                         )
                     })}
                 
